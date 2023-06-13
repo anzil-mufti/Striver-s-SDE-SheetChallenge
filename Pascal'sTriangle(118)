@@ -1,0 +1,21 @@
+ public List<List<Integer>> generate(int n) {
+        List<List<Integer>> res=new ArrayList<List<Integer>>();
+        List<Integer> list,pre=null;
+        for(int row=1;row<=n;row++)
+        {
+           list=new ArrayList<>();
+            for(int j=1;j<=row;++j)
+            {
+                if(j==1||j==row)
+                {
+                    list.add(1);
+                }
+                else{
+                    list.add(pre.get(j-2)+pre.get(j-1));
+                }
+            }
+            pre=list;
+            res.add(list);
+        }
+        return res;
+    }
